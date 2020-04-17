@@ -1,0 +1,1 @@
+*/5 * * * * <user> /usr/local/bin/wifi-logging.sh wlan0 /var/log/wifi-log.csv 0 >/dev/null 2>>/var/log/wifi-logging-errors.log
