@@ -11,11 +11,11 @@ See the header comments in the script for details of the input arguments
 
 1. Run manually as a standalone script, using command line arguments as described in the header comments of the script. The script outputs both to logfile and stdout.
 
-2. Run periodically from cron - an example of the line to add to _/etc/crontab_ can be found in file _crontab-line_.  Note replace _<user>_ to run the script as specifiec user - this user must have write permissions on the output logfiles specified.  If required, change the adapter and output logfile.    Note _crontab-line_ assumes the script is located in _/usr/local/bin/wifi-logging.sh_.  When running from cron, use default _<Wait between polls in seconds>_ of 0 to run in one-shot mode
+2. Run periodically from cron - an example of the line to add to _/etc/crontab_ can be found in file _crontab-line_.  Note replace _<user>_ to run the script as specifiec user - this user must have write permissions on the output logfiles specified.  If required, change the adapter and output logfile.  Note _crontab-line_ assumes the script is located in _/usr/local/bin/wifi-logging.sh_.  When running from cron, use default _<Wait between polls in seconds>_ of 0 to run in one-shot mode
 
 3. Run as a systemd service:
 
-Edit _wifi-logging.service_ to sepcify the required interface, output logfile and interval between runs in seconds
+Edit _wifi-logging.service_ to specify the required interface, output logfile(s) and interval between runs in seconds
 
 ```
 sudo mv wifi-logging.sh /usr/local/bin/
@@ -42,6 +42,6 @@ Timestamp,Internet Status (0/1),Ping Latency (ms), Bit Rate (Mb/s), Signal Level
 - Requires Linux with _iwconfig_
 
 ## Caveats 
-- iwconfig is deprecated in recent Linux distributions
-- It's not great practice to scrape output from iwconfig :)
+- _iwconfig_ is deprecated in recent Linux distributions
+- It is not great practice to scrape output from _iwconfig_ :)
 
