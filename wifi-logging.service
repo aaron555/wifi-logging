@@ -1,9 +1,7 @@
 [Unit]
 Description=Wifi Connection status CSV logging
 DefaultDependencies=no
-After=local-fs.target,network-online.target 
-Before=sysinit.target shutdown.target
-Conflicts=shutdown.target
+After=local-fs.target network-online.target networking.service
 
 [Service]
 ExecStart=/bin/bash -c "exec /usr/local/bin/wifi-logging.sh wlan0 /var/log/wifi-log.csv 60 >/dev/null 2>>/var/log/wifi-logging-errors.log"
